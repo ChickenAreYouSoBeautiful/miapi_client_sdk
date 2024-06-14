@@ -8,7 +8,7 @@
         <version>2.7.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mi</groupId>
+    <groupId>io.github.chickenareyousobeautiful</groupId>
     <artifactId>miapi_client_sdk</artifactId>
     <version>0.0.4</version>
     <name>miapi_client_sdk</name>
@@ -94,8 +94,8 @@
     <!--填入开发者信息，姓名、邮箱、项目地址-->
     <developers>
         <developer>
-            <name>sanqi</name>
-            <email>nuomibaicha@163.com</email>
+            <name>midingqian</name>
+            <email>372563469@qq.com</email>
             <roles>
                 <role>Developer</role>
             </roles>
@@ -103,6 +103,7 @@
             <!--			<timezone>+8</timezone>-->
         </developer>
     </developers>
+
 
     <build>
         <plugins>
@@ -167,18 +168,29 @@
             </plugin>
 
             <!--部署插件-->
+<!--            <plugin>-->
+<!--                <groupId>org.sonatype.plugins</groupId>-->
+<!--                <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--                <version>1.6.7</version>-->
+<!--                <extensions>true</extensions>-->
+<!--                <configuration>-->
+<!--                    <serverId>${serverId}</serverId>-->
+<!--                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>-->
+<!--                    <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>${serverId}</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <publishingServerId>${serverId}</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                    <autoPublish>false</autoPublish>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
